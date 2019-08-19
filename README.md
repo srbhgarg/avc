@@ -31,4 +31,7 @@ uses vision.PointTracker based KLT tracker to track the detected keypoints.
 
 avc_extractHeadFeatures.m: compute features based on the detected keypoint trajectory.
 
+![](images/eyebrow_track.png)
+
+
 classify2.m and classify3.m contains code for random forest and the modified implementation of Paul's random forest method.
