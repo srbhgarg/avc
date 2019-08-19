@@ -66,20 +66,21 @@ else
     lip = a&b;
 end
 
-lip = a|b;
+% lip = a|b;
 
 % lip = imbinarize(squeeze(hsv(:,:,2))) & imbinarize(squeeze(hsv(:,:,1)));
 
 big = bwareafilt(lip,1);
 mask = imdilate(bwconvhull(big),se);
-bw = activecontour(rgb2gray(img),mask,500,'edge','SmoothFactor',2);
+bw = activecontour(rgb2gray(img),mask,1500,'edge','SmoothFactor',2);
 
 
 %  img(:,:,1)= bw*255;
  img(:,:,1)= mask*255;
  
-%  imshow(rgb2gray(img)); 
- 
+% imshow(a) 
+% figure; image(b)
+% imshow(rgb2gray(img)); 
  
 indices = [];
 for j=mbbox(1):mbbox(1)+mbbox(3)
