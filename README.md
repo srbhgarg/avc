@@ -15,6 +15,7 @@ avc_readData.m: Function that reads the video files.
 avc_readLabels: Specific to this project. Parse the filename for different labels.
 avc_videosegment.m: returns the frame number of the first and the last frame in video where the audio is present.
 detectLips.m: detect keypoints on lips. uses LBP cascade filter to detect mouth.
+![](images/detectlips.png)
 detectEyes.m: detect keypoints on eyebrow. Internally calls detectEyebrow.m.
 detectNose.m: detect keypoints on head.
 
