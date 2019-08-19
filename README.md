@@ -16,12 +16,15 @@ avc_readLabels: Specific to this project. Parse the filename for different label
 avc_videosegment.m: returns the frame number of the first and the last frame in video where the audio is present.
 detectLips.m: detect keypoints on lips. uses LBP cascade filter to detect mouth.
 
-![](images/detectlips.png)
+![](images/lips.png)
 
-detectEyes.m: detect keypoints on eyebrow. Internally calls detectEyebrow.m.
+detectEyes.m: detect keypoints on eyebrow. Internally calls detectEyebrow.m
+
 ![](images/eyebrow.png)
 
 detectNose.m: detect keypoints on head.
+
+![](images/nose.png)
 
 pickpoints.m: this function picks one keypoints from various detected keypoints in one region.
 uses vision.PointTracker based KLT tracker to track the detected keypoints.
