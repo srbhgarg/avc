@@ -1,11 +1,9 @@
 # avc
 Speech Communications
 
-This code was tested on mp4 files. In case of issues reading video files, check the codecs or use different function. 
-"mmread" function was also found to be useful to read the audio/video data.
+This code was tested on mp4 files. In case of issues reading video files, check the codecs or use different read function (e.g. "mmread" function was also found to be useful to read the audio/video data).
 
-There is some issue in reading video files using MATLAB's videoReader function on MAC OS. I have not tested on other platforms
-to confirm if the issue is still there on other platforms.
+There are some issues in reading video files using MATLAB's videoReader function on MAC OS. This issue may also occur on other platforms.
 
 avc_main.m is the main function file to run the code.
 
@@ -26,7 +24,7 @@ detectNose.m: detect keypoints on head.
 
 ![](images/nose.png)
 
-pickpoints.m: this function picks one keypoints from various detected keypoints in one region.
+pickpoints.m: this function picks one keypoint from various detected keypoints in one region.
 uses vision.PointTracker based KLT tracker to track the detected keypoints.
 
 avc_extractHeadFeatures.m: compute features based on the detected keypoint trajectory.
