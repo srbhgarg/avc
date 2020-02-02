@@ -7,15 +7,15 @@ This code was tested on ```mp4``` files. In case of issues reading video files, 
 There are some issues in reading video files using ```MATLAB```'s videoReader function on MAC OS. This issue may also occur on other platforms.
 
 - ```avc_main.m``` is the main function file to run the code.
-- ```data``` folder contain some sample data to run the code.
-- ```avc_readData```: Function that reads the video files. 
-- ```avc_readLabels```: Specific to this project. Parse the filename for different labels.
-- ```avc_videosegment```: returns the frame number of the first and the last frame in video where the audio is present.
-- ```detectLips```: detect keypoints on lips. uses LBP cascade filter to detect mouth.
+- ```data``` folder contains sample data to run the code.
+- ```avc_readData```: function that reads the video files. 
+- ```avc_readLabels``` is specific to this project. It parses the filename for different annotation labels.
+- ```avc_videosegment```: returns the frame number of the first and the last frame in the video where audio signal is detected.
+- ```detectLips```: detect keypoints on lips; uses LBP cascade filter to detect mouth.
 
 ![](images/lips.png)
 
-```detectEyes```: detect keypoints on eyebrow. Internally calls detectEyebrow.m
+```detectEyes```: detect keypoints on eyebrow. Internally calls ```detectEyebrow```
 
 ![](images/eyebrow.png)
 
@@ -24,7 +24,7 @@ There are some issues in reading video files using ```MATLAB```'s videoReader fu
 ![](images/nose.png)
 
 ```pickpoints```: this function picks one keypoint from various detected keypoints in one region.
-uses vision.PointTracker based KLT tracker to track the detected keypoints.
+uses ```vision.PointTracker``` based KLT tracker to track the detected keypoints.
 
 ```avc_extractHeadFeatures```: compute features based on the detected keypoint trajectory.
 
