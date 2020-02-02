@@ -1,4 +1,5 @@
-# avc
+# AVC (Audio-Visual Communication) #
+
 Speech Communications
 
 This code was tested on mp4 files. In case of issues reading video files, check the codecs or use different read function (e.g. "mmread" function was also found to be useful to read the audio/video data).
@@ -32,4 +33,4 @@ avc_extractHeadFeatures.m: compute features based on the detected keypoint traje
 ![](images/eyebrow_track.png)
 
 
-classify2.m and classify3.m contains code for random forest and the modified implementation of Paul's random forest method.
+```classify2.m``` and ```classify3.m``` contains code for random forest and the modified implementation of Paul's random forest method.
