@@ -26,7 +26,7 @@ debug=true; % turn debugging off
 filelist= dir([data '*.mp4']);
 
 features=[];
-for f=4%1:size(filelist,1)
+for f=1:size(filelist,1)
     feat=[];
     if(isstruct(filelist))
         filename = filelist(f).name;
@@ -58,7 +58,7 @@ for f=4%1:size(filelist,1)
     end
     %%
     I = vidFrame;
-    [I1, indices, mbbox] = detectLips(I);
+    [I1, indices] = detectLips(I);
     feat.lips.x = indices(:,2);
     feat.lips.y = indices(:,1);
     feat.lips.valid = ones(length(indices),1);
@@ -80,7 +80,7 @@ for f=4%1:size(filelist,1)
         imshow(I1);
     end
     %% detect head
-    [I1, nindices, nsize, nbox] = detectNose(I);
+    [I1, nindices, nsize] = detectNose(I);
     feat.head.x = nindices(:,2);
     feat.head.y = nindices(:,1);
     feat.head.valid = ones(length(nindices),1);
@@ -126,9 +126,9 @@ for f=4%1:size(filelist,1)
     %extract features
     donorm=1; %perform normalization    
     feat = normalization(feat,2);
-    [headfeat, dist, hpt] = avc_extractHeadFeatures(feat, donorm, debug);
-    [eyefeat, eyedist, ept] = avc_extractEyeFeatures(feat, donorm);
-    [lipsfeat, lipsdist, lpt1, lpt2] = avc_extractLipsFeatures(feat, donorm);
+    [headfeat, dist] = avc_extractHeadFeatures(feat, donorm, debug);
+    [eyefeat, eyedist] = avc_extractEyeFeatures(feat, donorm);
+    [lipsfeat, lipsdist] = avc_extractLipsFeatures(feat, donorm);
     
     features = [features; headfeat eyefeat lipsfeat];
 
