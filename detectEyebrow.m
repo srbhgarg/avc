@@ -14,11 +14,16 @@ function [I, indices] = detectEyebrow(I,lbboxes)
 reg = 115;
 img = I(lbboxes(2)-reg:lbboxes(2)+lbboxes(4),lbboxes(1)-5:lbboxes(1)+lbboxes(3),:);
 img1 = zeros(size(img));
+
 % based on the color
+
+%10% of the height and width
+win_size = round(lbboxes(4)/10)-1;
+% set a margin of size 8 in the sub image (img1) 
 for j=8:5+lbboxes(3)-8
     for i=8:reg+lbboxes(4)-8
         for k=1:3
-        if(sum(img(i-7:i, j:j+7,k)) > sum(img(i:i+7, j:j+7,k)))
+        if(sum(img(i-win_size:i, j:j+win_size,k)) > sum(img(i:i+win_size,j:j+win_size,k)))
             img1(i,j,1) =img1(i,j,1)+ 0.2;
         end
         end
