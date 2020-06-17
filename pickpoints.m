@@ -3,9 +3,12 @@ function pt = pickpoints(hor, vert)
 
 pt=round(size(hor,1)/2);
 
-ht= hist(vert(:,1),length(vert(:,1)));
+
+[ht, cen]= hist(vert(:,1),length(vert(:,1)));
 [~,b]= max(ht);
-idxlist = find(vert(:,1)>= (vert(b,1)-5) & vert(:,1)<= (vert(b,1)+5));
+%find the points that are +- 5 away in the largest bin and then pick the
+%middle
+idxlist = find(vert(:,1)>= (cen(b)-5) & vert(:,1)<= (cen(b)+5));
 pt = idxlist(round(length(idxlist)/2));
 
 end
